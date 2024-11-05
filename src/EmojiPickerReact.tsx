@@ -63,7 +63,7 @@ function ExpandedPickerContent({ renderAll }: { renderAll: boolean }) {
     <>
       <Header />
       <Body />
-      <Preview />
+    
     </>
   );
 }
