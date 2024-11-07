@@ -6,7 +6,7 @@ import { Body } from './components/body/Body';
 import { ElementRefContextProvider } from './components/context/ElementRefContext';
 import { PickerConfigProvider } from './components/context/PickerConfigContext';
 import { useReactionsModeState } from './components/context/PickerContext';
-import { Preview } from './components/footer/Preview';
+
 import { Header } from './components/header/Header';
 import PickerMain from './components/main/PickerMain';
 import { compareConfig } from './config/compareConfig';
