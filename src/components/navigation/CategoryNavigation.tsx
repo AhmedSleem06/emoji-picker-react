@@ -30,7 +30,12 @@ export function CategoryNavigation() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <div
-        style={{ display: 'flex', flexDirection: 'row', justifyContent: 'end' }}
+        style={{
+          display: 'flex',
+          padding: '10px',
+          flexDirection: 'row',
+          justifyContent: 'end',
+        }}
       >
         <button
           style={{ width: 'fit', backgroundColor: 'transparent' }}
