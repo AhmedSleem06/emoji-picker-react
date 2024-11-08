@@ -32,13 +32,17 @@ export function CategoryNavigation() {
       <div
         style={{
           display: 'flex',
-          padding: '10px',
+          padding: '5px',
           flexDirection: 'row',
           justifyContent: 'end',
         }}
       >
         <button
-          style={{ width: 'fit', backgroundColor: 'transparent' }}
+          style={{
+            width: 'fit',
+            backgroundColor: 'transparent',
+            fontWeight: 'bold',
+          }}
           onClick={useOnExitButtonClicked}
         >
           X
