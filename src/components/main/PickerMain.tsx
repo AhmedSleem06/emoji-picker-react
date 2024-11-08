@@ -6,7 +6,7 @@ import { stylesheet } from '../../Stylesheet/stylesheet';
 import {
   useClassNameConfig,
   useStyleConfig,
-  useThemeConfig
+  useThemeConfig,
 } from '../../config/useConfig';
 import useIsSearchMode from '../../hooks/useIsSearchMode';
 import { useKeyboardNavigation } from '../../hooks/useKeyboardNavigation';
@@ -15,7 +15,7 @@ import { Theme } from '../../types/exposedTypes';
 import { usePickerMainRef } from '../context/ElementRefContext';
 import {
   PickerContextProvider,
-  useReactionsModeState
+  useReactionsModeState,
 } from '../context/PickerContext';
 
 type Props = Readonly<{
@@ -59,15 +59,15 @@ function PickerRootElement({ children }: RootProps) {
         theme === Theme.DARK && styles.darkTheme,
         theme === Theme.AUTO && styles.autoThemeDark,
         {
-          [ClassNames.searchActive]: searchModeActive
+          [ClassNames.searchActive]: searchModeActive,
         },
         reactionsMode && styles.reactionsMenu,
-        className
+        className,
       )}
       ref={PickerMainRef}
       style={{
         ...styleProps,
-        ...(!reactionsMode && { height, width })
+        ...(!reactionsMode && { height, width }),
       }}
     >
       {children}
@@ -96,13 +96,13 @@ const DarkTheme = {
   '--epr-category-icon-active-color':
     'var(--epr-dark-category-icon-active-color)',
   '--epr-skin-tone-picker-menu-color':
-    'var(--epr-dark-skin-tone-picker-menu-color)'
+    'var(--epr-dark-skin-tone-picker-menu-color)',
 };
 
 const styles = stylesheet.create({
   main: {
     '.': ['epr-main', ClassNames.emojiPicker],
-    position: 'relative',
+    position: 'absolute',
     display: 'flex',
     flexDirection: 'column',
     borderWidth: '1px',
@@ -114,8 +114,8 @@ const styles = stylesheet.create({
     transition: 'all 0.3s ease-in-out, background-color 0.1s ease-in-out',
     '*': {
       boxSizing: 'border-box',
-      fontFamily: 'sans-serif'
-    }
+      fontFamily: 'sans-serif',
+    },
   },
   baseVariables: {
     '--': {
@@ -208,18 +208,18 @@ const styles = stylesheet.create({
       '--epr-dark-search-input-bg-color-active': 'var(--epr-dark)',
       '--epr-dark-emoji-variation-indicator-color': '#444',
       '--epr-dark-category-icon-active-color': '#3271b7',
-      '--epr-dark-skin-tone-picker-menu-color': '#22222295'
-    }
+      '--epr-dark-skin-tone-picker-menu-color': '#22222295',
+    },
   },
   autoThemeDark: {
     '.': ClassNames.autoTheme,
     '@media (prefers-color-scheme: dark)': {
-      '--': DarkTheme
-    }
+      '--': DarkTheme,
+    },
   },
   darkTheme: {
     '.': ClassNames.darkTheme,
-    '--': DarkTheme
+    '--': DarkTheme,
   },
   reactionsMenu: {
     '.': 'epr-reactions',
@@ -229,7 +229,7 @@ const styles = stylesheet.create({
     // @ts-ignore - backdropFilter is not recognized.
     backdropFilter: 'blur(8px)',
     '--': {
-      '--epr-picker-border-radius': '50px'
-    }
-  }
+      '--epr-picker-border-radius': '50px',
+    },
+  },
 });
