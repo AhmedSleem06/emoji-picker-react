@@ -24,6 +24,7 @@ export function CategoryNavigation() {
   const isSearchMode = useIsSearchMode();
 
   const categoriesConfig = useCategoriesConfig();
+  const onExitButtonClicked = useOnExitButtonClicked();
   const CategoryNavigationRef = useCategoryNavigationRef();
   const hideCustomCategory = useShouldHideCustomEmojis();
 
@@ -43,7 +44,7 @@ export function CategoryNavigation() {
             backgroundColor: 'transparent',
             fontWeight: 'bold',
           }}
-          onClick={useOnExitButtonClicked}
+          onClick={onExitButtonClicked}
         >
           X
         </button>
