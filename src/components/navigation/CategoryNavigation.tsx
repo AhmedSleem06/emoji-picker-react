@@ -27,6 +27,7 @@ export function CategoryNavigation() {
   const onExitButtonClicked = useOnExitButtonClicked();
   const CategoryNavigationRef = useCategoryNavigationRef();
   const hideCustomCategory = useShouldHideCustomEmojis();
+  const [textHover, setTextHover] = useState(false);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -43,6 +44,14 @@ export function CategoryNavigation() {
             width: 'fit',
             backgroundColor: 'transparent',
             fontWeight: 'bold',
+            transition: 'ease-in-out',
+            color: textHover ? '#858585' : '#859085',
+          }}
+          onMouseEnter={() => {
+            setTextHover(true);
+          }}
+          onMouseLeave={() => {
+            setTextHover(false);
           }}
           onClick={onExitButtonClicked}
         >
