@@ -47,7 +47,7 @@ export function useSetConfig(config: PickerConfig) {
     config.searchPlaceholder,
     config.defaultSkinTone,
     config.skinTonesDisabled,
-    config.onExitButtonClicked,
+
     config.autoFocusSearch,
     config.emojiStyle,
     config.theme,
