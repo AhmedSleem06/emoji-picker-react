@@ -61,6 +61,11 @@ export function useAutoFocusSearchConfig(): boolean {
   return autoFocusSearch;
 }
 
+export function useOnExitButtonClicked(): () => void {
+  const { onExitButtonClicked } = usePickerConfig();
+  return onExitButtonClicked;
+}
+
 export function useCategoriesConfig(): CategoriesConfig {
   const { categories } = usePickerConfig();
   return categories;

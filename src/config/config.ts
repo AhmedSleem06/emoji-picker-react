@@ -68,6 +68,7 @@ export function mergeConfig(
 
 export function basePickerConfig(): PickerConfigInternal {
   return {
+    onExitButtonClicked: () => {} ,
     autoFocusSearch: true,
     categories: baseCategoriesConfig(),
     className: '',
@@ -100,6 +101,7 @@ export function basePickerConfig(): PickerConfigInternal {
 }
 
 export type PickerConfigInternal = {
+  onExitButtonClicked : () => void ;
   emojiVersion: string | null;
   searchPlaceHolder: string;
   searchPlaceholder: string;

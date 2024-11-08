@@ -4,7 +4,10 @@ import { useState } from 'react';
 
 import { stylesheet } from '../../Stylesheet/stylesheet';
 import { categoryFromCategoryConfig } from '../../config/categoryConfig';
-import { useCategoriesConfig } from '../../config/useConfig';
+import {
+  useCategoriesConfig,
+  useOnExitButtonClicked,
+} from '../../config/useConfig';
 import { useActiveCategoryScrollDetection } from '../../hooks/useActiveCategoryScrollDetection';
 import useIsSearchMode from '../../hooks/useIsSearchMode';
 import { useScrollCategoryIntoView } from '../../hooks/useScrollCategoryIntoView';
@@ -25,37 +28,49 @@ export function CategoryNavigation() {
   const hideCustomCategory = useShouldHideCustomEmojis();
 
   return (
-    <div
-      className={cx(styles.nav)}
-      role="tablist"
-      aria-label="Category navigation"
-      id="epr-category-nav-id"
-      ref={CategoryNavigationRef}
-    >
-      {categoriesConfig.map(categoryConfig => {
-        const category = categoryFromCategoryConfig(categoryConfig);
-        const isActiveCategory = category === activeCategory;
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div
+        style={{ display: 'flex', flexDirection: 'row', justifyContent: 'end' }}
+      >
+        <button
+          style={{ width: 'fit', backgroundColor: 'transparent' }}
+          onClick={useOnExitButtonClicked}
+        >
+          X
+        </button>
+      </div>
+      <div
+        className={cx(styles.nav)}
+        role="tablist"
+        aria-label="Category navigation"
+        id="epr-category-nav-id"
+        ref={CategoryNavigationRef}
+      >
+        {categoriesConfig.map((categoryConfig) => {
+          const category = categoryFromCategoryConfig(categoryConfig);
+          const isActiveCategory = category === activeCategory;
 
-        if (isCustomCategory(categoryConfig) && hideCustomCategory) {
-          return null;
-        }
+          if (isCustomCategory(categoryConfig) && hideCustomCategory) {
+            return null;
+          }
 
-        const allowNavigation = !isSearchMode && !isActiveCategory;
+          const allowNavigation = !isSearchMode && !isActiveCategory;
 
-        return (
-          <CategoryButton
-            key={category}
-            category={category}
-            isActiveCategory={isActiveCategory}
-            allowNavigation={allowNavigation}
-            categoryConfig={categoryConfig}
-            onClick={() => {
-              setActiveCategory(category);
-              scrollCategoryIntoView(category);
-            }}
-          />
-        );
-      })}
+          return (
+            <CategoryButton
+              key={category}
+              category={category}
+              isActiveCategory={isActiveCategory}
+              allowNavigation={allowNavigation}
+              categoryConfig={categoryConfig}
+              onClick={() => {
+                setActiveCategory(category);
+                scrollCategoryIntoView(category);
+              }}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -66,20 +81,20 @@ const styles = stylesheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    padding: 'var(--epr-header-padding)'
+    padding: 'var(--epr-header-padding)',
   },
   '.epr-search-active': {
     nav: {
       opacity: '0.3',
       cursor: 'default',
-      pointerEvents: 'none'
-    }
+      pointerEvents: 'none',
+    },
   },
   '.epr-main:has(input:not(:placeholder-shown))': {
     nav: {
       opacity: '0.3',
       cursor: 'default',
-      pointerEvents: 'none'
-    }
-  }
+      pointerEvents: 'none',
+    },
+  },
 });

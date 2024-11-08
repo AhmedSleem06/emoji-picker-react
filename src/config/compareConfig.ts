@@ -13,6 +13,7 @@ export function compareConfig(prev: PickerConfig, next: PickerConfig) {
     prev.defaultSkinTone === next.defaultSkinTone &&
     prev.skinTonesDisabled === next.skinTonesDisabled &&
     prev.autoFocusSearch === next.autoFocusSearch &&
+    prev.onExitButtonClicked === next.onExitButtonClicked &&
     prev.emojiStyle === next.emojiStyle &&
     prev.theme === next.theme &&
     prev.suggestedEmojisMode === next.suggestedEmojisMode &&
