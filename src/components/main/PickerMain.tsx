@@ -119,7 +119,7 @@ const styles = stylesheet.create({
   },
   baseVariables: {
     '--': {
-      '--epr-highlight-color': '#007aeb',
+      '--epr-highlight-color': '#ea580c',
       '--epr-hover-bg-color': '#f1f8ff',
       '--epr-hover-bg-color-reduced-opacity': '#f1f8ff80',
       '--epr-focus-bg-color': '#e0f0ff',
