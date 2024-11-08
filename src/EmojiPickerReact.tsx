@@ -13,7 +13,6 @@ import { compareConfig } from './config/compareConfig';
 import { useAllowExpandReactions, useOpenConfig } from './config/useConfig';
 
 import { PickerProps } from './index';
-import { Preview } from './components/footer/Preview';
 
 function EmojiPicker(props: PickerProps) {
   return (
@@ -64,7 +63,6 @@ function ExpandedPickerContent({ renderAll }: { renderAll: boolean }) {
     <>
       <Header />
       <Body />
-      <Preview />
     </>
   );
 }
