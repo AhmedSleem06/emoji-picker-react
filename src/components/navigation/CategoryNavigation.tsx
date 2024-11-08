@@ -33,7 +33,7 @@ export function CategoryNavigation() {
       <div
         style={{
           display: 'flex',
-          padding: '5px',
+          margin: '15px',
           flexDirection: 'row',
           justifyContent: 'end',
         }}

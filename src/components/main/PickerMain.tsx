@@ -137,7 +137,7 @@ const styles = stylesheet.create({
 
       /* Header */
       '--epr-search-border-color': 'var(--epr-highlight-color)',
-      '--epr-header-padding': '15px var(--epr-horizontal-padding)',
+      '--epr-header-padding': '10px var(--epr-horizontal-padding)',
 
       /* Skin Tone Picker */
       '--epr-active-skin-tone-indicator-border-color':
